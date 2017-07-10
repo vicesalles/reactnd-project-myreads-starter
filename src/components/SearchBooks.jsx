@@ -14,16 +14,17 @@ export default class BookExplorer extends Component {
     newSearch = (book) => {
 
         BooksAPI.search(book).then((res) => {
-           
+
             let nBooks = [];
-            res.map((b) => {
+            if (res.length > 0) {
+                res.map((b) => {
 
-                return nBooks.push(<Book key={b.id} title={b.title} cover={b.imageLinks.thumbnail} author={b.author} />);
+                    return nBooks.push(<Book key={b.id} title={b.title} cover={b.imageLinks.thumbnail} author={b.author} />);
 
-            });
+                });
 
-            this.setState({ books: nBooks });
-
+                this.setState({ books: nBooks });
+            }
         }
 
         );
