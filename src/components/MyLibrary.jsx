@@ -6,22 +6,26 @@ import Book from './Book.jsx';
 import Shelf from './Shelf.jsx';
 
 export default class MyLibrary extends Component {
-    state = {
-        currentlyReading: [],
-        wantToRead: [],
-        read: []
+    cosntructor(props) {
+        super(props);
+        state = {
+            currentlyReading: [],
+            wantToRead: [],
+            read: []
+        }
     }
+
     componentDidMount() {
-       
+
         BooksAPI.getAll().then((res) => {
-            
+
             //Those are the shelves where I want to organize the books.
             let myShelves = ['currentlyReading', 'wantToRead', 'read'];
-            
+
             //Mapping throw the different shelves and putting there the books
             myShelves.map((s) => {
-                this.organizeToShelf(s, res);
-            });          
+                return this.organizeToShelf(s, res);
+            });
 
         });
 
@@ -32,7 +36,7 @@ export default class MyLibrary extends Component {
      * @param {String} shelf - Desired Shelf
      * @param {Array} books - Array of Raw books from the API 
      */
-    organizeToShelf(shelf, books) {
+    organizeToShelf = (shelf, books) => {
 
         if (shelf === 'currentlyReading' || shelf === 'wantToRead' || shelf === 'read') {
 
@@ -56,7 +60,7 @@ export default class MyLibrary extends Component {
      * @description Turns JSON Object into React Component
      * @param {Obj} book 
      */
-    goComponent(book) {
+    goComponent = (book) => {
         return <Book key={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
     }
 
