@@ -4,7 +4,6 @@ import * as BooksAPI from '../BooksAPI'
 import SearchBar from './SearchBar.jsx';
 import Book from './Book.jsx';
 
-
 export default class BookExplorer extends Component {
 
     state = {
