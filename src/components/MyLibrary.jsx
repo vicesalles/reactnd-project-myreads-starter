@@ -6,25 +6,26 @@ import Book from './Book.jsx';
 import Shelf from './Shelf.jsx';
 
 export default class MyLibrary extends Component {
-    cosntructor(props) {
-        super(props);
-        state = {
-            currentlyReading: [],
-            wantToRead: [],
-            read: []
-        }
+    state = {
+        currentlyReading: [],
+        wantToRead: [],
+        read: []
     }
 
     componentDidMount() {
 
+        //Getting all the books from the API
         BooksAPI.getAll().then((res) => {
+
+            //Delete duplicated entries
+            let noDup = this.props.noDuplicate(res);
 
             //Those are the shelves where I want to organize the books.
             let myShelves = ['currentlyReading', 'wantToRead', 'read'];
 
             //Mapping throw the different shelves and putting there the books
             myShelves.map((s) => {
-                return this.organizeToShelf(s, res);
+                return this.organizeToShelf(s, noDup);
             });
 
         });
@@ -33,7 +34,7 @@ export default class MyLibrary extends Component {
 
     /**
      * @description Takes the data coming from the API and turns it into a state array made of components
-     * @param {String} shelf - Desired Shelf
+     * @param {String} shelf - Desired destination Shelf
      * @param {Array} books - Array of Raw books from the API 
      */
     organizeToShelf = (shelf, books) => {
@@ -57,11 +58,11 @@ export default class MyLibrary extends Component {
     }
 
     /**
-     * @description Turns JSON Object into React Component
+     * @description Turns a JSON Object into React Component
      * @param {Obj} book 
      */
     goComponent = (book) => {
-        return <Book key={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
+        return <Book key={book.id} id={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
     }
 
 
