@@ -7,10 +7,7 @@ import MyLibrary from './components/MyLibrary.jsx';
 import SearchBooks from './components/SearchBooks.jsx';
 
 class BooksApp extends React.Component {
-  state = {
-
-  }
-
+  
   /**
    * @description Elimninates duplicated items from an array
    * @param {array} a

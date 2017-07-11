@@ -10,9 +10,13 @@ export default class BookExplorer extends Component {
         books: []
     }
 
-    newSearch = (book) => {
+    /**
+     * @description Search for a query in the API
+     * @param {String} query
+     */
+    newSearch = (query) => {
 
-        BooksAPI.search(book).then((res) => {
+        BooksAPI.search(query).then((res) => {
 
             let nBooks = [];
             if (res.length > 0) {

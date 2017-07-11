@@ -65,7 +65,6 @@ export default class MyLibrary extends Component {
         return <Book key={book.id} id={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
     }
 
-
     render() {
 
         return (

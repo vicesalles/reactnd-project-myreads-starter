@@ -5,6 +5,11 @@ import ShelfChanger from './ShelfChanger.jsx'
 
 export default class Book extends Component {
 
+    /**
+     * @description Sets a new shelf for the given book
+     * @param {String} id Id of the book
+     * @param {String} s Destination shelf
+     */
     newShelf = (id, s) => {
         BooksAPI.update({ id }, s);
     }
