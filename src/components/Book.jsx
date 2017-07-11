@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as BooksAPI from '../BooksAPI';
+import propTypes from 'prop-types';
 
 import ShelfChanger from './ShelfChanger.jsx'
 
@@ -26,4 +27,11 @@ export default class Book extends Component {
             </div>
         );
     }
+}
+
+Book.propTypes = {
+    cover: propTypes.string.isRequired,
+    id: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
+    author: propTypes.array.isRequired
 }
