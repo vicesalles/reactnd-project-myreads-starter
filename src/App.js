@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
    * @param {array} a
    */
   noDuplicatedBooks = (a) => {
-    return _.uniqueId(a,'id');
+    return _.uniqBy(a,'id');
   }
 
   render() {
