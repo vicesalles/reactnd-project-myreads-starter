@@ -4,12 +4,13 @@ import * as BooksAPI from '../BooksAPI';
 
 import Book from './Book.jsx';
 import Shelf from './Shelf.jsx';
+import Loading from './Loading.jsx';
 
 export default class MyLibrary extends Component {
     state = {
-        currentlyReading: [],
-        wantToRead: [],
-        read: []
+        currentlyReading: [<Loading key="0"/>],
+        wantToRead: [<Loading key="1"/>],
+        read: [<Loading key="2"/>]
     }
 
     componentDidMount() {
