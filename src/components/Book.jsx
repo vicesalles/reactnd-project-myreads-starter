@@ -12,9 +12,12 @@ export default class Book extends Component {
      * @param {String} s Destination shelf
      */
     newShelf = (id, s) => {
-        BooksAPI.update({ id }, s);        
+        BooksAPI.update({ id }, s);
+
         //Calling for a Library view Update
-        this.props.update();
+        if (typeof this.props.update === 'function') {
+            this.props.update();
+        }
     }
 
     render() {
