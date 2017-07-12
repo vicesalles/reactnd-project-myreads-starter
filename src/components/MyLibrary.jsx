@@ -8,13 +8,23 @@ import Loading from './Loading.jsx';
 
 export default class MyLibrary extends Component {
     state = {
-        currentlyReading: [<Loading key="0"/>],
-        wantToRead: [<Loading key="1"/>],
-        read: [<Loading key="2"/>]
+        currentlyReading: [<Loading key="0" />],
+        wantToRead: [<Loading key="1" />],
+        read: [<Loading key="2" />]
     }
 
     componentDidMount() {
 
+        //Filling the shelves
+        this.populate();
+
+    }
+
+    /**
+     * @description calls to the API and fills the shelves
+     */
+    populate = () => {
+       
         //Getting all the books from the API
         BooksAPI.getAll().then((res) => {
 
@@ -24,13 +34,12 @@ export default class MyLibrary extends Component {
             //Those are the shelves where I want to organize the books.
             let myShelves = ['currentlyReading', 'wantToRead', 'read'];
 
-            //Mapping throw the different shelves and putting there the books
+            //Mapping through different shelves and putting there the books
             myShelves.map((s) => {
                 return this.organizeToShelf(s, noDup);
             });
 
         });
-
     }
 
     /**
@@ -63,7 +72,7 @@ export default class MyLibrary extends Component {
      * @param {Obj} book 
      */
     goComponent = (book) => {
-        return <Book key={book.id} id={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
+        return <Book update={this.populate} key={book.id} id={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
     }
 
     render() {
