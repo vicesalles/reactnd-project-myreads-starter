@@ -22,7 +22,7 @@ export default class BookExplorer extends Component {
             let nBooks = [];
             if (res.length > 0) {
 
-                let noDup = this.props.noDuplicate(res);
+                let noDup = this.props.clean(res);
 
                 noDup.map((b) => {
 

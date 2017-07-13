@@ -29,7 +29,7 @@ export default class MyLibrary extends Component {
         BooksAPI.getAll().then((res) => {
 
             //Delete duplicated entries
-            let noDup = this.props.noDuplicate(res);
+            let noDup = this.props.clean(res);
 
             //Those are the shelves where I want to organize the books.
             let myShelves = ['currentlyReading', 'wantToRead', 'read'];

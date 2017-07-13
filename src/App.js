@@ -21,11 +21,11 @@ class BooksApp extends React.Component {
       <div className="app">
 
         <Route exact path="/" render={() => (
-          <MyLibrary noDuplicate={this.noDuplicatedBooks} />
+          <MyLibrary clean={this.noDuplicatedBooks} />
         )} />
 
         <Route path="/search" render={() => (
-          <SearchBooks noDuplicate={this.noDuplicatedBooks} />
+          <SearchBooks clean={this.noDuplicatedBooks} />
         )} />
 
       </div>
