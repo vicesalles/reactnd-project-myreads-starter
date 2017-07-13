@@ -26,7 +26,7 @@ export default class BookExplorer extends Component {
 
                 noDup.map((b) => {
 
-                    return nBooks.push(<Book key={b.id} id={b.id} title={b.title} cover={b.imageLinks.thumbnail} author={b.author} />);
+                    return nBooks.push(<Book key={b.id} id={b.id} title={b.title} cover={b.imageLinks.thumbnail} author={b.author} selected={this.removeSelected} />);
 
                 });
 
@@ -38,17 +38,12 @@ export default class BookExplorer extends Component {
 
     }
 
-    /**
-     * @description Switches 'operation' state ture|false
-     */
-    switchAlert = () => {
-        let a = this.state.operation;
-        let b;
-
-        a ? b = false : b = true;
-
-        this.setState({ operation: b });
-
+    removeSelected = (id) => {
+        let bks = this.state.books;
+        let nBks = bks.filter(b => {
+            return b.key !== id
+        });
+        this.setState({ books: nBks });
     }
 
     render() {
@@ -57,7 +52,7 @@ export default class BookExplorer extends Component {
                 <SearchBar onChange={this.newSearch} />
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.books.length > 0 && this.state.books}                       
+                        {this.state.books.length > 0 && this.state.books}
                     </ol>
                 </div>
             </div>
