@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import _ from 'lodash';
 
-import MyLibrary from './components/MyLibrary.jsx';
-import SearchBooks from './components/SearchBooks.jsx';
+import MyLibrary from './components/MyLibrary';
+import SearchBooks from './components/SearchBooks';
 
 class BooksApp extends React.Component {
   

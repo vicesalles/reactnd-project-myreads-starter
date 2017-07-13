@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
 
-import Book from './Book.jsx';
-import Shelf from './Shelf.jsx';
-import Loading from './Loading.jsx';
+import Book from './Book';
+import Shelf from './Shelf';
+import Loading from './Loading';
 
 export default class MyLibrary extends Component {
     state = {

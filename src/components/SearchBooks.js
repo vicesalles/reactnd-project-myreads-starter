@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as BooksAPI from '../BooksAPI';
 
-import SearchBar from './SearchBar.jsx';
-import Book from './Book.jsx';
+import SearchBar from './SearchBar';
+import Book from './Book';
 
 
 export default class BookExplorer extends Component {

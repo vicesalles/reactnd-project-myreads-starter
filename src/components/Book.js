@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as BooksAPI from '../BooksAPI';
 import propTypes from 'prop-types';
 
-import ShelfChanger from './ShelfChanger.jsx'
+import ShelfChanger from './ShelfChanger'
 
 export default class Book extends Component {
 
