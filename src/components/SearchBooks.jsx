@@ -38,6 +38,10 @@ export default class BookExplorer extends Component {
 
     }
 
+    /**
+     * @description Removes book from view after it has been moved to a shelf
+     * @param {String} id Id of the selected book 
+     */
     removeSelected = (id) => {
         let bks = this.state.books;
         let nBks = bks.filter(b => {

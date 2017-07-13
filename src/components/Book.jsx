@@ -25,8 +25,6 @@ export default class Book extends Component {
             this.props.update();
         }
 
-
-
     }
 
     render() {
