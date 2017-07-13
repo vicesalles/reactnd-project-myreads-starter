@@ -72,7 +72,7 @@ export default class MyLibrary extends Component {
      * @param {Obj} book 
      */
     goComponent = (book) => {
-        return <Book update={this.populate} key={book.id} id={book.id} title={book.title} cover={book.imageLinks.thumbnail} author={book.authors} />;
+        return <Book update={this.populate} key={book.id} id={book.id} title={book.title} shelf={book.shelf} cover={book.imageLinks.thumbnail} author={book.authors} />;
     }
 
     render() {

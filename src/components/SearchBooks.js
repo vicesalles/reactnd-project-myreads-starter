@@ -25,9 +25,7 @@ export default class BookExplorer extends Component {
                 let noDup = this.props.clean(res);
 
                 noDup.map((b) => {
-
-                    return nBooks.push(<Book key={b.id} id={b.id} title={b.title} cover={b.imageLinks.thumbnail} author={b.author} selected={this.removeSelected} />);
-
+                    return nBooks.push(<Book key={b.id} id={b.id} title={b.title} shelf={b.shelf} cover={b.imageLinks.thumbnail} author={b.authors} selected={this.removeSelected} />);
                 });
 
                 this.setState({ books: nBooks });

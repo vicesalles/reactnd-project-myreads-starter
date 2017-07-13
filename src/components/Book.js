@@ -32,7 +32,7 @@ export default class Book extends Component {
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.cover})` }}></div>
-                    <ShelfChanger onChange={(s) => this.newShelf(this.props.id, s)} />
+                    <ShelfChanger shelf={this.props.shelf} onChange={(s) => this.newShelf(this.props.id, s)} />
                 </div>
                 <div className="book-title">{this.props.title}</div>
                 <div className="book-authors">{this.props.author}</div>
