@@ -29,7 +29,7 @@ export default class ShelfChanger extends Component {
      */
     stringShelf(s) {
         let r;
-        console.log(s);
+        
         switch (s) {
             case 'currentlyReading':
                 r = 'Reading it';
