@@ -45,5 +45,5 @@ Book.propTypes = {
     cover: propTypes.string.isRequired,
     id: propTypes.string.isRequired,
     title: propTypes.string.isRequired,
-    author: propTypes.array.isRequired
+    author: propTypes.array
 }
