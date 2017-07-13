@@ -4,6 +4,7 @@ import * as BooksAPI from '../BooksAPI';
 import SearchBar from './SearchBar.jsx';
 import Book from './Book.jsx';
 
+
 export default class BookExplorer extends Component {
 
     state = {
@@ -37,13 +38,26 @@ export default class BookExplorer extends Component {
 
     }
 
+    /**
+     * @description Switches 'operation' state ture|false
+     */
+    switchAlert = () => {
+        let a = this.state.operation;
+        let b;
+
+        a ? b = false : b = true;
+
+        this.setState({ operation: b });
+
+    }
+
     render() {
         return (
             <div className="search-books">
                 <SearchBar onChange={this.newSearch} />
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.books.length > 0 && this.state.books}
+                        {this.state.books.length > 0 && this.state.books}                       
                     </ol>
                 </div>
             </div>

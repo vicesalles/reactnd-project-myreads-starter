@@ -12,12 +12,23 @@ export default class Book extends Component {
      * @param {String} s Destination shelf
      */
     newShelf = (id, s) => {
+
+        //Calling for visual alert if it applies
+        if (typeof this.props.alert === 'function') {
+            console.log('alert');
+            this.props.alert();
+        }
+
         BooksAPI.update({ id }, s);
 
         //Calling for a Library view Update
         if (typeof this.props.update === 'function') {
+            console.log('update');
             this.props.update();
         }
+
+
+
     }
 
     render() {
