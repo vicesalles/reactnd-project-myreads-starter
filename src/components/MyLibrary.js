@@ -34,6 +34,9 @@ export default class MyLibrary extends Component {
             //Those are the shelves where I want to organize the books.
             let myShelves = ['currentlyReading', 'wantToRead', 'read'];
 
+            //Saving books to App state
+            this.props.save(noDup);            
+            
             //Mapping through different shelves and putting there the books
             myShelves.map((s) => {
                 return this.organizeToShelf(s, noDup);
