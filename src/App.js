@@ -43,6 +43,7 @@ class BooksApp extends React.Component {
         if (b.id === book.id) {
           return b;
         }
+        return undefined;
       });
       
       if (r.length === 1) {
