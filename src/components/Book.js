@@ -31,19 +31,16 @@ export default class Book extends Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.cover})` }}></div>
-                    <ShelfChanger shelf={this.props.shelf} onChange={(s) => this.newShelf(this.props.id, s)} />
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
+                    <ShelfChanger shelf={this.props.book.shelf} onChange={(s) => this.newShelf(this.props.book.id, s)} />
                 </div>
-                <div className="book-title">{this.props.title}</div>
-                <div className="book-authors">{this.props.author}</div>
+                <div className="book-title">{this.props.book.title}</div>
+                <div className="book-authors">{this.props.book.authors}</div>
             </div>
         );
     }
 }
 
 Book.propTypes = {
-    cover: propTypes.string.isRequired,
-    id: propTypes.string.isRequired,
-    title: propTypes.string.isRequired,
-    author: propTypes.array.isRequired
+    book: propTypes.object.isRequired
 }
