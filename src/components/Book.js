@@ -17,7 +17,7 @@ export default class Book extends Component {
 
         //Calling for visual alert if it applies
         if (typeof this.props.selected === 'function') {
-           this.props.selected(id);
+            this.props.selected(id);
         }
 
         //Calling for a Library view Update
@@ -42,5 +42,7 @@ export default class Book extends Component {
 }
 
 Book.propTypes = {
-    book: propTypes.object.isRequired
+    book: propTypes.object.isRequired,
+    selected: propTypes.func,
+    update: propTypes.func
 }
