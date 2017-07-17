@@ -28,7 +28,6 @@ class BooksApp extends React.Component {
     this.setState({ myBooks });
   }
 
-
   /**
    * @description processes a raw array of books and returns an array with shelf property updated
    * @param {Array} b
@@ -53,26 +52,27 @@ class BooksApp extends React.Component {
     }
 
     //Parsing books coming from API
-    let fB = b.map((bk) => {
+    let filteredBooks = b.map((bk) => {
 
-      let r;
+      let response;
+      
       //Is this book already in my shelves?
-      let comp = check(bk);
+      let clean = check(bk);
       
       //If not, take it as is. Else, copy the one in the shelf
-      if (comp === undefined) {
+      if (clean === undefined) {
         bk.shelf = 'none';
-        r = bk;
+        response = bk;
       } else {        
-        r = comp;
+        response = clean;
       }
 
-      return r;
+      return response;
 
     })
 
     //Filtered and normalized Books
-    return fB;
+    return filteredBooks;
 
   }
 
