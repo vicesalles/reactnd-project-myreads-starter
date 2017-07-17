@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI';
+import myShelves from '../myShelves';
 
 import Book from './Book';
 import Shelf from './Shelf';
@@ -30,9 +31,6 @@ export default class MyLibrary extends Component {
 
             //Delete duplicated entries
             let noDup = this.props.clean(res);
-
-            //Those are the shelves where I want to organize the books.
-            let myShelves = ['currentlyReading', 'wantToRead', 'read'];
 
             //Saving books to App state
             this.props.save(noDup);            
