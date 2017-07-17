@@ -78,7 +78,8 @@ export default class ShelfChanger extends Component {
             <div className="book-shelf-changer">
                 <select defaultValue={this.props.shelf} onChange={(e) => this.handleChange(e.target.value)}>
                     <option value="none" disabled>Move to...</option>
-                    {this.hasShelf(this.props.shelf)}                    
+                    {this.hasShelf(this.props.shelf)}           
+                    <option value="none">None</option>         
                 </select>
             </div>
         );
